@@ -1,17 +1,14 @@
-# 目录
+# 反向代理
 
-1. [反向代理](#1)
-
-<h1 id="1">反向代理</h1>
 打开nginx配置文件
 
 ```shell
-vi /etc/nginx/sites-enabled/default
+vim /etc/nginx/sites-enabled/default
 ```
 
-把文件根路由中改成如下配置
+把文件根路由改成如下配置
 
-```
+```shell
 location / {
   proxy_http_version 1.1;
   proxy_set_header X-Real-IP $remote_addr;
