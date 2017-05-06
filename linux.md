@@ -87,3 +87,41 @@ VARIABLE_NAME=value
 unset VARIABLE_NAME
 ```
 
+# 创建 swap 分区
+
+切换 root 用户
+
+```shell
+sudo su -
+```
+
+创建 swap 分区内存块
+
+```shell
+dd if=/dev/zero of=/swap bs=1M count=8192
+```
+
+创建 swap 分区
+
+```shell
+mkswap /swap
+```
+
+启用 swap 分区
+
+```shell
+swapon /swap
+```
+
+开机自动启用 swap 分区
+
+```shell
+echo "/swap swap swap defaults 0 0" >> /etc/fstab
+```
+
+停用 swap 分区
+
+```shell
+swapoff /swap
+```
+
