@@ -8,39 +8,6 @@ sudo update-grub
 
 命令会搜索系统存在的引导，并把搜索到的引导打印到终端上，执行完重启电脑就可以看到丢失Windows的引导入口了。此方法在Ubuntu和Deepin已测试可用。
 
-# 搭建Samba服务器
-
-安装samba
-
-```shell
-sudo apt-get install samba
-```
-
-修改配置文件，在最后写入
-
-```shell
-[share] # 访问名称
-comment = share # 说明
-path = /home/server/Public # 服务器文件夹路径
-public = yes
-writable = yes # 写权限
-browseable = yes
-guest ok = yes
-```
-
-重启samba
-
-```shell
-service smbd restart
-```
-
-在文件管理器中访问，如服务器IP为192.168.0.1
-
-```shell
-\\192.168.0.1\share # windows
-smb://192.168.0.1/share # linux
-```
-
 # 使终端支持256位色值
 
 打开home目录下的配置文件.bashrc
